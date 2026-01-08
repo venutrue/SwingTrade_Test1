@@ -1,0 +1,44 @@
+# Core Dependencies
+kiteconnect>=4.0.0
+pandas>=2.0.0
+numpy>=1.24.0
+
+# Database
+sqlalchemy>=2.0.0
+alembic>=1.12.0
+aiosqlite>=0.19.0
+
+# Async Support
+asyncio>=3.4.3
+aiohttp>=3.9.0
+
+# Configuration
+pydantic>=2.5.0
+pydantic-settings>=2.1.0
+python-dotenv>=1.0.0
+
+# Monitoring & Logging
+structlog>=23.2.0
+prometheus-client>=0.19.0
+
+# Notifications
+python-telegram-bot>=20.7
+aiosmtplib>=3.0.0
+
+# Scheduling
+apscheduler>=3.10.0
+
+# Redis (optional for distributed)
+redis>=5.0.0
+
+# Testing
+pytest>=7.4.0
+pytest-asyncio>=0.21.0
+pytest-cov>=4.1.0
+
+# Type checking
+mypy>=1.7.0
+
+# Code quality
+black>=23.11.0
+ruff>=0.1.6
