@@ -488,8 +488,8 @@ class AuditLog(Base):
     # Timestamp
     timestamp: Mapped[datetime] = mapped_column(DateTime, default=func.now(), index=True)
 
-    # Metadata
-    metadata: Mapped[Optional[Dict]] = mapped_column(JSON, nullable=True)
+    # Extra data
+    extra_data: Mapped[Optional[Dict]] = mapped_column(JSON, nullable=True)
 
     __table_args__ = (
         Index("ix_audit_event_timestamp", "event_type", "timestamp"),

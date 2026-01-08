@@ -608,7 +608,7 @@ class AuditLogRepository:
         old_value: Optional[Dict] = None,
         new_value: Optional[Dict] = None,
         level: AlertLevel = AlertLevel.INFO,
-        metadata: Optional[Dict] = None,
+        extra_data: Optional[Dict] = None,
     ) -> AuditLog:
         """Create an audit log entry."""
         entry = AuditLog(
@@ -619,7 +619,7 @@ class AuditLogRepository:
             old_value=old_value,
             new_value=new_value,
             level=level,
-            metadata=metadata,
+            extra_data=extra_data,
         )
         self.session.add(entry)
         await self.session.flush()

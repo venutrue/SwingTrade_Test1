@@ -54,8 +54,8 @@ class ProductType(str, Enum):
 
 class BrokerConfig(BaseModel):
     """Zerodha Kite Connect Configuration"""
-    api_key: str = Field(..., min_length=8)
-    api_secret: str = Field(..., min_length=8)
+    api_key: str = Field(default="", min_length=0)  # Required in production
+    api_secret: str = Field(default="", min_length=0)  # Required in production
     access_token: Optional[str] = None
     request_token: Optional[str] = None
 

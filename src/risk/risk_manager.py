@@ -299,7 +299,7 @@ class RiskValidator:
             )
 
         # Lower risk score for better R:R
-        risk_score = max(0, 50 - (rr_ratio - float(min_rr)) * 10)
+        risk_score = max(0, 50 - (float(rr_ratio) - float(min_rr)) * 10)
         return RiskCheckResult(
             passed=True,
             reason=f"R:R ratio {rr_ratio:.2f} acceptable",
@@ -533,7 +533,7 @@ class CircuitBreaker:
                 event_type="CIRCUIT_BREAKER_TRIGGERED",
                 description=reason,
                 level=AlertLevel.CRITICAL,
-                metadata={
+                extra_data={
                     "triggered_at": self.triggered_at.isoformat(),
                     "cooldown_until": self.cooldown_until.isoformat() if self.cooldown_until else None,
                 }
@@ -651,7 +651,7 @@ class KillSwitch:
                     event_type="KILL_SWITCH_ACTIVATED",
                     description=reason,
                     level=AlertLevel.CRITICAL,
-                    metadata=results,
+                    extra_data=results,
                 )
 
             return results
@@ -682,7 +682,7 @@ class KillSwitch:
                     event_type="KILL_SWITCH_DEACTIVATED",
                     description="Kill switch deactivated, trading resumed",
                     level=AlertLevel.WARNING,
-                    metadata={"was_active_since": previous_activation.isoformat() if previous_activation else None}
+                    extra_data={"was_active_since": previous_activation.isoformat() if previous_activation else None}
                 )
 
             return {
